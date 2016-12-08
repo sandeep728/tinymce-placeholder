@@ -8,7 +8,6 @@ tinymce.PluginManager.add('placeholder', function(editor) {
         editor.on('focus', onFocus);
         editor.on('blur', onBlur);
         editor.on('change', onBlur);
-        editor.on('setContent', onBlur);
 
         function onFocus(){
             if(!editor.settings.readonly === true){
@@ -42,6 +41,6 @@ tinymce.PluginManager.add('placeholder', function(editor) {
     }
 
     Label.prototype.show = function(){
-        tinymce.DOM.setStyle( this.el, 'display', '' );   
+        tinymce.DOM.setStyle( this.el, 'display', '' );
     }
 });
