@@ -25,7 +25,7 @@ plugins: "fullscreen placeholder"
 Textarea:
 `<textarea class="tinymce" placeholder="Hello World!"></textarea>`
 
-Styling of the placeholder label
+Styling the placeholder label
 --------------------------------
 
 By default, this plugin styles the placeholder with the following attributes:
