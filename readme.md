@@ -40,8 +40,7 @@ By default, this plugin styles the placeholder with the following attributes:
     padding: '1%',
     width:'98%',
     overflow: 'hidden',
-    'white-space':
-    'pre-wrap'
+    'white-space': 'pre-wrap'
   }
 }
 ```
@@ -55,13 +54,13 @@ tinyMCE.init({
 });
 ```
 
-Or alternatively, you can override these settings by providing the `!important` directive along in your CSS property for the label...
+Or alternatively, you can override specific properties of the default CSS by providing the `!important` directive along in your CSS property for the label...
 
 ```css
 .mce-edit-area {
   label {
-    color: #A9A9A9 !important; // Override text color
-    left: 5px !important; // Override left positioning
+    color: #A9A9A9 !important; /* Override text color */
+    left: 5px !important; /* Override left positioning */
   }
 }
 ```
