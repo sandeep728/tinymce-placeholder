@@ -8,20 +8,26 @@ tinymce.PluginManager.add('placeholder', function(editor) {
         editor.on('focus', onFocus);
         editor.on('blur', onBlur);
         editor.on('change', onBlur);
+        editor.on('setContent', onBlur);
+        editor.on('keydown', onKeydown);
 
-        function onFocus(){
-            if(!editor.settings.readonly === true){
+        function onFocus() {
+            if (!editor.settings.readonly === true) {
                 label.hide();
             }
             editor.execCommand('mceFocus', false);
         }
 
-        function onBlur(){
-            if(editor.getContent() == '') {
+        function onBlur() {
+            if (editor.getContent() == '') {
                 label.show();
-            }else{
+            } else {
                 label.hide();
             }
+        }
+
+        function onKeydown(){
+            label.hide();
         }
     });
 
