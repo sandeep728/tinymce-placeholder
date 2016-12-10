@@ -39,7 +39,7 @@ tinymce.PluginManager.add('placeholder', function(editor) {
         tinymce.DOM.setStyle(contentAreaContainer, 'position', 'relative');
 
         // Create label el
-        this.el = tinymce.DOM.add( contentAreaContainer, "label", placeholder_attrs, placeholder_text );
+        this.el = tinymce.DOM.add( contentAreaContainer, editor.settings.placeholder_tag || "label", placeholder_attrs, placeholder_text );
     }
 
     Label.prototype.hide = function(){
