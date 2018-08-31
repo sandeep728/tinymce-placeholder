@@ -1,6 +1,17 @@
 tinymce.PluginManager.add('placeholder', function(editor) {
     editor.on('init', function() {
         var label = new Label;
+        
+        // Watch changes in the placeholder value
+        var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+        var observer = new MutationObserver(function(mutations) {
+            label.updatePlaceholder();
+        });
+        
+        observer.observe(editor.getElement(), {
+            attributes: true,
+            attributeFilter: ['placeholder']
+        });
 
         onBlur();
 
@@ -40,6 +51,10 @@ tinymce.PluginManager.add('placeholder', function(editor) {
 
         // Create label el
         this.el = tinymce.DOM.add( contentAreaContainer, editor.settings.placeholder_tag || "label", placeholder_attrs, placeholder_text );
+    }
+    
+    Label.prototype.updatePlaceholder = function(){
+        this.el.innerHTML = editor.getElement().getAttribute("placeholder") || editor.settings.placeholder;
     }
 
     Label.prototype.hide = function(){
